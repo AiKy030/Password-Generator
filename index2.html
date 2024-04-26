@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #121212;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        text-align: center;
+      }
+      #container {
+        box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.1);
+        width: 300px;
+        border-radius: 5px;
+        background-color: #1e1e1e;
+        padding: 20px;
+      }
+      #pwdDisplay {
+        word-wrap: break-word;
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #252525;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #d3d3d3;
+      }
+      #genBtn {
+        padding: 10px 20px;
+        margin-top: 10px;
+        cursor: pointer;
+        background-color: #6a0dad;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      #genBtn:hover {
+        background-color: #7c2ae8;
+      }
+      .signature {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-size: 12px;
+        color: #d3d3d3;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h2>Password Generator</h2>
+      <div id="pwdDisplay">🔒 Your password will appear here 🔒</div>
+      <button id="genBtn">Generate Password</button>
+      <div class="signature">Made by Kyle</div>
+    </div>
+
+    <script>
+      document.querySelector("#genBtn").addEventListener("click", function () {
+        document.querySelector("#pwdDisplay").textContent =
+          "🔒 " + genPwd() + " 🔒";
+      });
+
+      function genPwd() {
+        const chars =
+          "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const pwdLen = 12;
+        let pwd = "";
+
+        for (let i = 0; i < pwdLen; i++) {
+          const rndNum = Math.floor(Math.random() * chars.length);
+          pwd += chars.substring(rndNum, rndNum + 1);
+        }
+
+        return pwd;
+      }
+    </script>
+  </body>
+</html>
