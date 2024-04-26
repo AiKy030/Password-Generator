@@ -63,25 +63,6 @@
       <div class="signature">Made by Kyle</div>
     </div>
 
-    <script>
-      document.querySelector("#genBtn").addEventListener("click", function () {
-        document.querySelector("#pwdDisplay").textContent =
-          "🔒 " + genPwd() + " 🔒";
-      });
-
-      function genPwd() {
-        const chars =
-          "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        const pwdLen = 12;
-        let pwd = "";
-
-        for (let i = 0; i < pwdLen; i++) {
-          const rndNum = Math.floor(Math.random() * chars.length);
-          pwd += chars.substring(rndNum, rndNum + 1);
-        }
-
-        return pwd;
-      }
-    </script>
+    <script src="script2.js"></script>
   </body>
 </html>
